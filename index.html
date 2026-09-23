@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio</title>
+<meta name="description" content="AI automation projects: customer-messaging bots for small businesses, built on Cloudflare Workers and Gemini.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --text: #1c1917;
+    --muted: #57534e;
+    --border: #e7e5e4;
+    --accent: #0f766e;
+    --accent-soft: #ccfbf1;
+    --todo: #b45309;
+    --todo-soft: #fef3c7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0c0a09;
+      --surface: #1c1917;
+      --text: #f5f5f4;
+      --muted: #a8a29e;
+      --border: #292524;
+      --accent: #2dd4bf;
+      --accent-soft: #134e4a;
+      --todo: #fbbf24;
+      --todo-soft: #451a03;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0c0a09;
+    --surface: #1c1917;
+    --text: #f5f5f4;
+    --muted: #a8a29e;
+    --border: #292524;
+    --accent: #2dd4bf;
+    --accent-soft: #134e4a;
+    --todo: #fbbf24;
+    --todo-soft: #451a03;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 Inter, system-ui, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 56px 16px 96px; }
+  a { color: var(--accent); }
+  h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.02em; }
+  h2 { font-size: 1.35rem; margin: 56px 0 12px; letter-spacing: -0.01em; }
+  h3 { font-size: 1rem; margin: 32px 0 8px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+  p { margin: 0 0 14px; }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .btn {
+    display: inline-block; padding: 8px 14px; border: 1px solid var(--border);
+    border-radius: 8px; text-decoration: none; color: var(--text); background: var(--surface);
+    font-weight: 500; font-size: 0.95rem;
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 28px 24px; margin-top: 24px;
+  }
+  .tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 2px 8px;
+    border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-right: 6px;
+  }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 20px 0; }
+  .stat { border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .stat b { display: block; font-size: 1.8rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 0.85rem; color: var(--muted); }
+
+  ol.flow { list-style: none; padding: 0; margin: 16px 0; counter-reset: step; }
+  ol.flow li {
+    counter-increment: step; position: relative; padding: 10px 0 10px 44px;
+    border-left: 2px solid var(--border); margin-left: 14px;
+  }
+  ol.flow li::before {
+    content: counter(step); position: absolute; left: -15px; top: 8px;
+    width: 28px; height: 28px; border-radius: 50%; background: var(--surface);
+    border: 2px solid var(--accent); color: var(--accent); font-weight: 600; font-size: 0.85rem;
+    display: grid; place-items: center;
+  }
+  ol.flow li:last-child { border-left-color: transparent; }
+
+  ul.stack { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+  ul.stack li {
+    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.82rem;
+    border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px;
+  }
+
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .shot {
+    aspect-ratio: 4 / 3; border: 2px dashed var(--border); border-radius: 10px;
+    display: grid; place-items: center; text-align: center; padding: 12px;
+    color: var(--muted); font-size: 0.85rem;
+  }
+  .shot img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+
+  /* Placeholders to fill before publishing — search the file for "TODO". */
+  .todo {
+    background: var(--todo-soft); color: var(--todo); border-radius: 4px; padding: 0 4px;
+    font-weight: 600;
+  }
+
+  footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <h1><span class="todo">TODO: Your Name</span></h1>
+    <p class="lede">I build AI automation for small businesses: chatbots that answer customers around the clock, and back-office agents that draft replies and sync bookings, with the owner approving each step.</p>
+    <div class="links">
+      <a class="btn primary" href="#stay-bot">Case study: Stay-Bot</a>
+      <a class="btn" href="https://dowolje-mvp-template-test.mainsupport.workers.dev/demo">Live demo</a>
+      <a class="btn" href="TODO-linkedin-url">LinkedIn</a>
+      <a class="btn" href="TODO-github-url">GitHub</a>
+    </div>
+  </header>
+
+  <!-- ============ Case study 1 ============ -->
+  <section class="card" id="stay-bot">
+    <span class="tag">AI automation</span><span class="tag">Production</span>
+    <h2 style="margin-top:12px">Stay-Bot: a 24/7 guest-messaging bot for a guesthouse</h2>
+    <p>This bot runs in production for Dowolje, a three-room guesthouse in Gunsan, South Korea. Guests chat with it on Naver TalkTalk and in a chat widget on the website.</p>
+
+    <h3>Problem</h3>
+    <p>The owner of a small guesthouse gets the same questions again and again: where to park, how to check in, whether they can leave luggage, where to put the trash, and requests for fresh towels. The questions come at all hours and in several languages. The owner answered every message by hand, often late at night, and a slow reply is how a good stay turns into a bad review.</p>
+
+    <h3>Solution</h3>
+    <p>I built a serverless bot that answers routine questions instantly, bases every freeform answer on the property's own guidebook, and passes only the unusual cases to the owner by SMS.</p>
+    <ol class="flow">
+      <li><strong>A guest sends a message</strong> on Naver TalkTalk or the website chat widget. Both go to one Cloudflare Worker.</li>
+      <li><strong>Menu buttons get an instant, fixed answer.</strong> The top questions (reservations, check-in, parking, the room manual, luggage) are answered in code without calling the AI, so the reply is fast and costs nothing.</li>
+      <li><strong>Freeform questions go to Gemini.</strong> The system prompt holds the property's full guidebook. The bot answers in the guest's language, including Korean, English, Japanese and Chinese.</li>
+      <li><strong>Conversation memory</strong> is stored in Workers KV. Each guest's history is capped at 8 turns to keep prompts small and expires after 24 hours.</li>
+      <li><strong>Handoff to the owner:</strong> when the guidebook doesn't cover a question, the bot tells the guest the owner will follow up and texts the owner through Solapi. A 15-minute cooldown per guest keeps the owner's phone from filling up with repeat alerts.</li>
+      <li><strong>Cost tracking:</strong> token usage and dollar cost are recorded per day and per channel (Naver or web), and can be checked at a <code>/usage</code> endpoint.</li>
+    </ol>
+
+    <h3>At a glance</h3>
+    <div class="stats">
+      <div class="stat"><b>2</b><span>Channels served by one Worker: Naver TalkTalk and web chat</span></div>
+      <div class="stat"><b>4+</b><span>Languages answered: Korean, English, Japanese, Chinese</span></div>
+      <div class="stat"><b class="todo">$TODO</b><span>AI cost per month, from the /usage endpoint</span></div>
+    </div>
+
+    <h3>Engineering decisions</h3>
+    <ul>
+      <li><strong>Fixed answers before AI:</strong> the most common questions never call the AI. That makes those replies faster, cheaper and always correct.</li>
+      <li><strong>Model fallback:</strong> the bot tries several Gemini models in order, with a time limit on each attempt, so one slow or failing model can't stall a reply.</li>
+      <li><strong>Guardrails:</strong> the bot answers only from the guidebook and never invents facts. It follows tone rules and hands anything else to the owner, adding a note that overnight replies may be slower.</li>
+      <li><strong>Automatic deploys:</strong> each push is deployed through GitHub Actions and <code>wrangler deploy</code>. The site and the bot run from one Worker, with nothing else to host.</li>
+    </ul>
+
+    <h3>Stack</h3>
+    <ul class="stack">
+      <li>TypeScript</li><li>Cloudflare Workers</li><li>Workers KV</li><li>Gemini API</li>
+      <li>Naver TalkTalk API</li><li>Solapi SMS</li><li>GitHub Actions</li>
+    </ul>
+
+    <h3>Screenshots</h3>
+    <!-- Drop images into ./images/ and swap each placeholder for <img src="images/..." alt="..."> -->
+    <div class="shots">
+      <div class="shot">TODO: Cloudflare Worker dashboard (requests and errors)</div>
+      <div class="shot">TODO: A guest conversation in TalkTalk (hide guest details)</div>
+      <div class="shot">TODO: The website chat widget, as shown in the demo</div>
+    </div>
+
+    <div class="links">
+      <a class="btn primary" href="https://dowolje-mvp-template-test.mainsupport.workers.dev/demo">Try the demo</a>
+      <a class="btn" href="TODO-blog-post-url">Read the write-up</a>
+      <a class="btn" href="TODO-stay-bot-repo-url">View the code</a>
+    </div>
+  </section>
+
+  <!-- ============ Case study 2 ============ -->
+  <section class="card" id="jarvis">
+    <span class="tag">AI agents</span><span class="tag">Human in the loop</span><span class="tag">Production</span>
+    <h2 style="margin-top:12px">Jarvis: an operations agent that drafts and books, then waits for approval</h2>
+    <p>Jarvis is a coordinator with separate workers, running around the clock on a cloud server. It watches the guesthouse's Airbnb and Naver bookings and guest inquiries. It drafts the next action, and the owner approves or skips it with one tap in Telegram.</p>
+
+    <h3>Problem</h3>
+    <p>A small host lists the same rooms on Airbnb and Naver. Every Airbnb booking has to be blocked on Naver by hand, or the room can be booked twice. Every Airbnb inquiry needs a thoughtful reply. Both jobs are repetitive and urgent, and a mistake is expensive.</p>
+
+    <h3>How it works</h3>
+    <ol class="flow">
+      <li><strong>Detect:</strong> it watches Gmail for booking confirmations and inquiries, and pulls reservations from the Naver booking admin.</li>
+      <li><strong>Draft:</strong> Claude writes a reply to each Airbnb inquiry, and a job is prepared to block the matching dates on Naver.</li>
+      <li><strong>Approve:</strong> each action is sent to Telegram with Approve and Skip buttons, and nothing reaches a guest or a calendar without a tap.</li>
+      <li><strong>Act and log:</strong> once approved, it sends the reply or blocks the dates through a headless browser. Every step is written to a Google Sheets audit log.</li>
+    </ol>
+
+    <h3>Results (Aug 24 – Sep 23, 2026, from the audit log)</h3>
+    <div class="stats">
+      <div class="stat"><b>45 / 47</b><span>Airbnb inquiries drafted automatically</span></div>
+      <div class="stat"><b>48</b><span>Double-booking blocks prepared for approval</span></div>
+      <div class="stat"><b>$10/day</b><span>Hard cap on AI spend, enforced in code</span></div>
+    </div>
+    <p>Most inquiry drafts are still sent by the owner, not the bot: of 34 drafts resolved, 7 were approved as written and 27 were handled by hand. Of 25 Naver block requests resolved, 4 went through automatically, 12 were done by hand and 9 failed. The failures traced back to a bug in the browser automation (below), which has been fixed. Raising the approval rate is the next goal.</p>
+
+    <h3>Incidents I found and fixed</h3>
+    <ul>
+      <li><strong>A runaway cost bug:</strong> widening a Gmail search to All Mail dropped a date limit on one filter. Years of old emails were read as new bookings, which caused 831 AI calls in one day. I fixed the filter and added <code>spend_guard.py</code>, which blocks all background AI calls once real billed spend passes $10 in a day.</li>
+      <li><strong>An automated-diagnosis loop that cost money:</strong> the error-diagnosis feature ran up $6.75 in one day through a missing model default and duplicate alerts. I redesigned it: alerts are now plain-text log matches that cost nothing, and I diagnose the cause myself.</li>
+      <li><strong>A false failure:</strong> Naver date blocks were being marked failed after 500ms, even though they had worked; the checkbox just updated late. Retrying the check for up to 5 seconds fixed it.</li>
+    </ul>
+
+    <h3>Stack</h3>
+    <ul class="stack">
+      <li>Python</li><li>Claude API</li><li>AWS Lightsail</li><li>systemd</li><li>Telegram Bot API</li>
+      <li>Gmail IMAP</li><li>Headless browser</li><li>Google Sheets API</li>
+    </ul>
+  </section>
+
+  <!-- ============ Next ============ -->
+  <section class="card" id="next">
+    <span class="tag">Coming next</span>
+    <h2 style="margin-top:12px">Client #2: <span class="todo">TODO</span></h2>
+    <p>I'm setting up the same kind of bot for a second small business with lots of repetitive customer messages. Once it's live, this section will follow the same outline: problem, solution, results, stack.</p>
+  </section>
+
+  <footer>
+    <p>I'm open to AI automation and solutions engineering roles. You can reach me at <span class="todo">TODO: email</span>.</p>
+  </footer>
+
+</main>
+</body>
+</html>
