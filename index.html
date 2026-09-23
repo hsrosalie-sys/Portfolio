@@ -100,7 +100,7 @@
     border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px;
   }
 
-  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
   .shot { margin: 0; }
   .shot img {
     display: block; width: 100%; height: 240px; object-fit: contain; object-position: top;
@@ -174,6 +174,10 @@
 
     <h3>Screenshots</h3>
     <div class="shots">
+      <figure class="shot">
+        <a href="images/demo-web-widget.png" target="_blank" rel="noopener"><img src="images/demo-web-widget.png" alt="Web chat demo: a guest taps the trash-sorting button and the bot explains how to separate general, recycling and food waste"></a>
+        <figcaption>The public web demo: the same bot with sample property data, so anyone can try it.</figcaption>
+      </figure>
       <figure class="shot">
         <a href="images/cloudflare-dashboard.png" target="_blank" rel="noopener"><img src="images/cloudflare-dashboard.png" alt="Cloudflare Workers dashboard showing 32 successful requests and 0 errors, Sep 17 to Sep 23"></a>
         <figcaption>The Cloudflare Worker in production: 32 requests, 0 errors in a week.</figcaption>
