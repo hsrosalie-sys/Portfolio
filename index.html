@@ -101,12 +101,12 @@
   }
 
   .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-  .shot {
-    aspect-ratio: 4 / 3; border: 2px dashed var(--border); border-radius: 10px;
-    display: grid; place-items: center; text-align: center; padding: 12px;
-    color: var(--muted); font-size: 0.85rem;
+  .shot { margin: 0; }
+  .shot img {
+    display: block; width: 100%; height: 240px; object-fit: contain; object-position: top;
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
   }
-  .shot img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+  .shot figcaption { margin-top: 8px; font-size: 0.82rem; color: var(--muted); }
 
   /* Placeholders to fill before publishing — search the file for "TODO". */
   .todo {
@@ -173,11 +173,19 @@
     </ul>
 
     <h3>Screenshots</h3>
-    <!-- Drop images into ./images/ and swap each placeholder for <img src="images/..." alt="..."> -->
     <div class="shots">
-      <div class="shot">TODO: Cloudflare Worker dashboard (requests and errors)</div>
-      <div class="shot">TODO: A guest conversation in TalkTalk (hide guest details)</div>
-      <div class="shot">TODO: The website chat widget, as shown in the demo</div>
+      <figure class="shot">
+        <a href="images/cloudflare-dashboard.png" target="_blank" rel="noopener"><img src="images/cloudflare-dashboard.png" alt="Cloudflare Workers dashboard showing 32 successful requests and 0 errors, Sep 17 to Sep 23"></a>
+        <figcaption>The Cloudflare Worker in production: 32 requests, 0 errors in a week.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="images/talktalk-towel-request.png" target="_blank" rel="noopener"><img src="images/talktalk-towel-request.png" alt="Naver TalkTalk chat: a guest asks for extra towels and the bot asks for the room number and reservation date before passing it to the host"></a>
+        <figcaption>A towel request: the bot asks for the room and date, then passes it to the host.</figcaption>
+      </figure>
+      <figure class="shot">
+        <a href="images/talktalk-early-checkin.png" target="_blank" rel="noopener"><img src="images/talktalk-early-checkin.png" alt="Naver TalkTalk chat: a guest asks about early check-in and the bot explains the 3pm check-in time and 11am luggage storage"></a>
+        <figcaption>A freeform question answered from the guidebook, with an alternative offered.</figcaption>
+      </figure>
     </div>
 
     <div class="links">
